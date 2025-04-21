@@ -31,6 +31,5 @@ Welcome to **MySenpai**, an interactive anime-themed website that lets you explo
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/your-username/mysenpai-anime.git
-   cd mysenpai-anime
+   (https://github.com/Mubeena2003/Movie_Platform)
 
