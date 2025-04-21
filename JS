@@ -1,0 +1,81 @@
+const animeGrid = document.getElementById('animeGrid');
+const modal = document.getElementById('animeModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDescription = document.getElementById('modalDescription');
+const modalStudio = document.getElementById('modalStudio');
+const modalEpisodes = document.getElementById('modalEpisodes');
+const modalTrailer = document.getElementById('modalTrailer');
+const modalAuthor = document.getElementById('modalAuthor');
+const searchBar = document.getElementById('searchBar');
+
+// Fetch and display anime data
+function fetchAnimeData() {
+    fetch('https://api.jikan.moe/v4/top/anime')
+        .then(res => res.json())
+        .then(data => {
+            animeGrid.innerHTML = ''; // Clear grid before adding new cards
+            data.data.slice(0, 12).forEach(anime => {
+                const card = document.createElement('div');
+                card.className = 'anime-card';
+                card.innerHTML = `
+          <img src="${anime.images.jpg.image_url}" width="100%">
+          <h3>${anime.title}</h3>
+        `;
+                card.addEventListener('click', () => showModal(anime));
+                animeGrid.appendChild(card);
+            });
+        });
+}
+
+function showModal(anime) {
+    modalTitle.innerHTML = `${anime.title} <span style="font-size: 0.8rem; color: #ccc;">(${anime.year || 'N/A'})</span>`;
+    modalDescription.innerHTML = `<em>${anime.synopsis || "No synopsis available."}</em>`;
+    modalStudio.innerHTML = anime.studios.length ? `<strong>${anime.studios[0].name}</strong>` : "Unknown";
+    modalEpisodes.innerHTML = anime.episodes ?? "N/A";
+    modalAuthor.textContent = "Loading...";
+
+    if (anime.trailer && anime.trailer.embed_url) {
+        modalTrailer.innerHTML = `<iframe id="animeTrailer" width="100%" height="315" src="${anime.trailer.embed_url}" frameborder="0" allowfullscreen></iframe>`;
+    } else {
+        modalTrailer.innerHTML = `<p>🚫 No trailer available.</p>`;
+    }
+
+    // Fetch author/staff info using anime ID
+    fetch(`https://api.jikan.moe/v4/anime/${anime.mal_id}/staff`)
+        .then(res => res.json())
+        .then(data => {
+            const creator = data.data.find(person => person.positions.includes("Original Creator"));
+            const author = creator ? creator.person.name : "Unknown";
+            modalAuthor.textContent = author;
+        })
+        .catch(() => {
+            modalAuthor.textContent = "Unknown";
+        });
+
+    modal.style.display = "flex";
+}
+
+modal.addEventListener('click', () => {
+    document.getElementById('animeTrailer').src = ''; // Stop video by resetting iframe source
+    modal.style.display = 'none';
+});
+
+// Theme Toggle
+const toggleTheme = document.getElementById('toggleTheme');
+toggleTheme.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    document.body.classList.toggle('dark-mode');
+});
+
+// Search Bar Logic
+searchBar.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    const cards = document.querySelectorAll('.anime-card');
+    cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        card.style.display = title.includes(query) ? 'block' : 'none';
+    });
+});
+
+// Initial Fetch on Load
+fetchAnimeData();
