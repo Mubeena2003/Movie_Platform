@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MySenpai - Anime World 🌸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Container for search, site name, and theme toggle button -->
+    <div class="search-container">
+        <div class="site-name">MySenpai</div>
+        <input type="text" id="searchBar" placeholder="Search Anime..." />
+        <button class="theme-btn" id="toggleTheme">🌗 </button>
+    </div>
+
+    <!-- Anime Grid -->
+    <div class="anime-grid" id="animeGrid"></div>
+
+    <!-- Modal for Detailed Anime View -->
+    <div class="modal" id="animeModal">
+        <div class="modal-content">
+            <!-- Anime Name in Modal Header -->
+            <h1 id="modalTitle"></h1>
+            <p id="modalDescription"></p>
+            <p><strong>Studio:</strong> <span id="modalStudio"></span></p>
+            <p><strong>Episodes:</strong> <span id="modalEpisodes"></span></p>
+            <p><strong>Author:</strong> <span id="modalAuthor">Loading...</span></p>
+            <a id="modalTrailer" href="#" target="_blank">🎥 Watch Trailer</a>
+        </div>
+    </div>
+
+    <!-- Chatbot Icon (Sanji) -->
+    <button class="chatbot-icon">
+        <img src="https://i.pinimg.com/originals/df/e6/7c/dfe67c473947f5975f64958c2c71e226.png" alt="Sanji Chatbot">
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
