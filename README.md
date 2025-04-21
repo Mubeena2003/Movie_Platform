@@ -23,13 +23,7 @@ Welcome to **MySenpai**, an interactive anime-themed website that lets you explo
 
 ## 📷 Preview
 
-![MySenpai Preview]![Image](https://github.com/user-attachments/assets/5033b8c3-2a24-43be-8cac-5508647cf92a)
+https://github.com/user-attachments/assets/5033b8c3-2a24-43be-8cac-5508647cf92a)
 
 > _Click any anime card to view full details in a modal with an embedded trailer._
 
-## 🚀 Getting Started
-
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/your-username/mysenpai-anime.git
-   cd mysenpai-anime
