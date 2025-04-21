@@ -1,5 +1,4 @@
-# Movie_Platform
-# 🌸 MySenpai - Anime Explorer Website
+# Movie_Platform : 🌸 MySenpai - Anime Explorer Website
 
 Welcome to **MySenpai**, an interactive anime-themed website that lets you explore your favorite anime shows with style! 🎌✨ Built using **HTML**, **CSS**, and **JavaScript**, this project fetches real-time data from the [Jikan API](https://jikan.moe/) to deliver dynamic anime details — including trailers, synopsis, episodes, authors, and studios.
 
