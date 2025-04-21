@@ -23,7 +23,7 @@ Welcome to **MySenpai**, an interactive anime-themed website that lets you explo
 
 ## 📷 Preview
 
-![MySenpai Preview]([https://your-image-url-here.com/preview.png](https://github.com/user-attachments/assets/5033b8c3-2a24-43be-8cac-5508647cf92a)))
+![MySenpai Preview] (https://github.com/user-attachments/assets/5033b8c3-2a24-43be-8cac-5508647cf92a)
 
 
 > _Click any anime card to view full details in a modal with an embedded trailer._
